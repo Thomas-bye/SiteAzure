@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let sesionDiv = document.createElement("div");
         sesionDiv.classList.add("sesion");
 
-        sesionDiv.innerHTML = `
+       sesionDiv.innerHTML = `
             <h2>Sesión ${i}</h2>
             <img src="img_parcial.png" alt="Imagen de la sesión ${i}">
             <a href="tareas/trabajo${i}.pdf" class="boton">Visualizar</a>
