@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         sesionDiv.innerHTML = `
             <h2>Sesión ${i}</h2>
-            <img src="img_Parcial.png" alt="Imagen de la sesión ${i}">
-            <a href="tareas/Parcial_${i}." class="boton">Visualizar</a>
-            <a href="documento${i}.pdf" download class="boton">Descargar PDF</a>
+            <img src="img_parcial.png" alt="Imagen de la sesión ${i}">
+            <a href="tareas/trabajo${i}.pdf" class="boton">Visualizar</a>
+            <a href="tareas/documento${i}.pdf" download class="boton">Descargar PDF</a>
         `;
 
         sesionesContainer.appendChild(sesionDiv);
