@@ -1,16 +1,27 @@
 /* Fuente y estilos básicos */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=M+PLUS+Rounded+1c&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
 }
-
-body {
-  background-color: #f0f4f8;
-  color: #333;
-}
-
 .container {
   display: flex;
   min-height: 100vh;
@@ -85,7 +96,56 @@ body {
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.contenedor-presentacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #dd37c7;
+}
 
+.contenedor-presentacion img {
+    width: 250px; /* Ajusta el tamaño según sea necesario */
+    height: 250px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.texto-presentacion {
+    max-width: 600px;
+    text-align: left;
+}
+.contenedor-tareas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tarea {
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tarea img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.tarea a {
+    display: block;
+    margin-top: 10px;
+    padding: 5px;
+    text-decoration: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+}
 .sesion {
     border: 1px solid #ccc;
     padding: 15px;
