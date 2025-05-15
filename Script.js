@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         sesionDiv.innerHTML = `
             <h2>Sesión ${i}</h2>
-            <img src="img/Parcial_${i}.png" alt="Imagen de la sesión ${i}">
-            <a href="tareas/pa${i}." class="boton">Visualizar</a>
+            <img src="img_Parcial.png" alt="Imagen de la sesión ${i}">
+            <a href="tareas/Parcial_${i}." class="boton">Visualizar</a>
             <a href="documento${i}.pdf" download class="boton">Descargar PDF</a>
         `;
 
