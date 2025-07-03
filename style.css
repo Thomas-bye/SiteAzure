@@ -171,6 +171,59 @@ body {
 .boton:hover {
     background-color: darkblue;
 }
+/* Estilos solo para la sección tareas2 */
+    tareas2 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    tareas2 .tarea {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        width: 200px;
+        text-align: center;
+        padding: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    tareas2 .tarea:hover {
+        transform: translateY(-5px);
+    }
+
+    tareas2 .tarea img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    tareas2 .tarea p {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #2c3e50;
+    }
+
+    tareas2 .tarea a {
+        display: inline-block;
+        padding: 8px 14px;
+        background-color: #2980b9;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    tareas2 .tarea a:hover {
+        background-color: #1c5980;
+    }
+
 /* Footer */
 footer {
   margin-top: 4rem;
