@@ -223,7 +223,74 @@ body {
     tareas2 .tarea a:hover {
         background-color: #1c5980;
     }
+/* section de gestion de tareas*/
+.contenedor-tareas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
 
+  .tarea {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease;
+  }
+
+  .tarea:hover {
+    transform: translateY(-5px);
+  }
+
+  .tarea img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .tarea p {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50;
+  }
+
+  .tarea a, .tarea button {
+    display: inline-block;
+    margin: 4px 4px;
+    padding: 6px 10px;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .tarea a {
+    background-color: #2980b9;
+    color: white;
+  }
+
+  .tarea a:hover {
+    background-color: #1c5980;
+  }
+
+  .editar {
+    background-color: #f1c40f;
+    color: #000;
+  }
+
+  .eliminar {
+    background-color: #e74c3c;
+    color: #fff;
+  }
 /* Footer */
 footer {
   margin-top: 4rem;
