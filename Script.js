@@ -26,3 +26,60 @@ document.addEventListener("DOMContentLoaded", function() {
         sesionesContainer.appendChild(sesionDiv);
     });
 });
+//contenedro gestion de tareas
+let tareas = [];
+
+  const formulario = document.getElementById("formulario");
+  const contenedor = document.getElementById("gestion");
+
+  formulario.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const imagen = document.getElementById("imagen").value;
+    const titulo = document.getElementById("titulo").value;
+    const link = document.getElementById("link").value;
+    const indice = document.getElementById("indice").value;
+
+    const nuevaTarea = { imagen, titulo, link };
+
+    if (indice === "") {
+      tareas.push(nuevaTarea); // Crear
+    } else {
+      tareas[indice] = nuevaTarea; // Editar
+      document.getElementById("indice").value = "";
+    }
+
+    mostrarTareas();
+    formulario.reset();
+  });
+
+  function mostrarTareas() {
+    contenedor.innerHTML = "";
+    tareas.forEach((tarea, index) => {
+      const div = document.createElement("div");
+      div.className = "tarea";
+      div.innerHTML = `
+        <img src="${tarea.imagen}" alt="${tarea.titulo}">
+        <p>${tarea.titulo.toUpperCase()}</p>
+        <a href="${tarea.link}" target="_blank">Ver</a>
+        <button class="editar" onclick="editarTarea(${index})">Editar</button>
+        <button class="eliminar" onclick="eliminarTarea(${index})">Eliminar</button>
+      `;
+      contenedor.appendChild(div);
+    });
+  }
+
+  function editarTarea(index) {
+    const tarea = tareas[index];
+    document.getElementById("imagen").value = tarea.imagen;
+    document.getElementById("titulo").value = tarea.titulo;
+    document.getElementById("link").value = tarea.link;
+    document.getElementById("indice").value = index;
+  }
+
+  function eliminarTarea(index) {
+    if (confirm("¿Estás seguro de eliminar esta tarea?")) {
+      tareas.splice(index, 1);
+      mostrarTareas();
+    }
+  }
