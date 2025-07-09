@@ -131,24 +131,21 @@
         </div>
     </div>
   </section>
-     <section id="gestion">
-       <h2>GESTION DE LAS SEMANAS</h2>
+    <section id="gestion">
+  <h2>GESTIÓN DE LAS SEMANAS</h2>
   <div style="max-width: 600px; margin: auto; padding: 10px;">
     <form id="formulario">
       <input type="hidden" id="indice">
-      <input type="text" id="imagen" placeholder="URL de imagen" required style="width: 100%; margin-bottom: 10px;">
       <input type="text" id="titulo" placeholder="Título (ej: Semana 17)" required style="width: 100%; margin-bottom: 10px;">
-      <input type="text" id="link" placeholder="Enlace (https://...)" required style="width: 100%; margin-bottom: 10px;">
+      <input type="file" id="archivo" accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg" required style="width: 100%; margin-bottom: 10px;">
       <button type="submit" style="width: 100%; background-color: #3498db; color: white; padding: 10px; border: none; border-radius: 5px;">Guardar</button>
     </form>
   </div>
 
-  <div class="contenedor-tareas" id="gestion">
+  <div class="contenedor-tareas" id="lista-tareas">
     <!-- Las tareas gestionadas aparecerán aquí -->
-    
   </div>
-       
-     </section>
+</section>
 
     <script src="Script.js"></script>
       <footer>
