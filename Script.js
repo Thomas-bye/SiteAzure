@@ -30,22 +30,34 @@ document.addEventListener("DOMContentLoaded", function() {
 let tareas = [];
 
   const formulario = document.getElementById("formulario");
-  const contenedor = document.getElementById("gestion");
+  const contenedor = document.getElementById("lista-tareas");
 
   formulario.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const imagen = document.getElementById("imagen").value;
     const titulo = document.getElementById("titulo").value;
-    const link = document.getElementById("link").value;
+    const archivoInput = document.getElementById("archivo");
+    const archivo = archivoInput.files[0];
     const indice = document.getElementById("indice").value;
 
-    const nuevaTarea = { imagen, titulo, link };
+    if (!archivo) {
+      alert("Por favor selecciona un archivo.");
+      return;
+    }
+
+    // Restricciones: tamaño máximo 5 MB
+    if (archivo.size > 5 * 1024 * 1024) {
+      alert("El archivo no debe superar los 5 MB.");
+      return;
+    }
+
+    const url = URL.createObjectURL(archivo);
+    const nuevaTarea = { titulo, url, nombre: archivo.name };
 
     if (indice === "") {
-      tareas.push(nuevaTarea); // Crear
+      tareas.push(nuevaTarea);
     } else {
-      tareas[indice] = nuevaTarea; // Editar
+      tareas[indice] = nuevaTarea;
       document.getElementById("indice").value = "";
     }
 
@@ -59,9 +71,9 @@ let tareas = [];
       const div = document.createElement("div");
       div.className = "tarea";
       div.innerHTML = `
-        <img src="${tarea.imagen}" alt="${tarea.titulo}">
         <p>${tarea.titulo.toUpperCase()}</p>
-        <a href="${tarea.link}" target="_blank">Ver</a>
+        <p><small>${tarea.nombre}</small></p>
+        <a href="${tarea.url}" target="_blank">Ver</a>
         <button class="editar" onclick="editarTarea(${index})">Editar</button>
         <button class="eliminar" onclick="eliminarTarea(${index})">Eliminar</button>
       `;
@@ -71,10 +83,9 @@ let tareas = [];
 
   function editarTarea(index) {
     const tarea = tareas[index];
-    document.getElementById("imagen").value = tarea.imagen;
     document.getElementById("titulo").value = tarea.titulo;
-    document.getElementById("link").value = tarea.link;
     document.getElementById("indice").value = index;
+    alert("Selecciona el archivo de nuevo para editar.");
   }
 
   function eliminarTarea(index) {
