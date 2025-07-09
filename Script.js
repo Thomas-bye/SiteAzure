@@ -30,44 +30,51 @@ document.addEventListener("DOMContentLoaded", function() {
 let tareas = [];
 
   const formulario = document.getElementById("formulario");
-  const contenedor = document.getElementById("lista-tareas");
 
   formulario.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const titulo = document.getElementById("titulo").value;
+    const titulo = document.getElementById("titulo").value.trim();
     const archivoInput = document.getElementById("archivo");
     const archivo = archivoInput.files[0];
-    const indice = document.getElementById("indice").value;
+    const seccion = document.getElementById("seccionDestino").value;
 
     if (!archivo) {
       alert("Por favor selecciona un archivo.");
       return;
     }
 
-    // Restricciones: tamaño máximo 5 MB
     if (archivo.size > 5 * 1024 * 1024) {
       alert("El archivo no debe superar los 5 MB.");
       return;
     }
 
-    const url = URL.createObjectURL(archivo);
-    const nuevaTarea = { titulo, url, nombre: archivo.name };
-
-    if (indice === "") {
-      tareas.push(nuevaTarea);
-    } else {
-      tareas[indice] = nuevaTarea;
-      document.getElementById("indice").value = "";
+    if (!seccion) {
+      alert("Debes seleccionar una sección.");
+      return;
     }
 
+    const url = URL.createObjectURL(archivo);
+    const tarea = {
+      titulo,
+      url,
+      nombre: archivo.name,
+      seccion
+    };
+
+    tareas.push(tarea);
     mostrarTareas();
     formulario.reset();
   });
 
   function mostrarTareas() {
-    contenedor.innerHTML = "";
+    // Limpiar todas las secciones posibles
+    ["tareas", "examen", "tareas2", "lista-tareas"].forEach(id => {
+      document.getElementById(id).innerHTML = "";
+    });
+
     tareas.forEach((tarea, index) => {
+      const contenedor = document.getElementById(tarea.seccion);
       const div = document.createElement("div");
       div.className = "tarea";
       div.innerHTML = `
@@ -84,12 +91,13 @@ let tareas = [];
   function editarTarea(index) {
     const tarea = tareas[index];
     document.getElementById("titulo").value = tarea.titulo;
+    document.getElementById("seccionDestino").value = tarea.seccion;
     document.getElementById("indice").value = index;
-    alert("Selecciona el archivo de nuevo para editar.");
+    alert("Selecciona nuevamente el archivo si deseas actualizarlo.");
   }
 
   function eliminarTarea(index) {
-    if (confirm("¿Estás seguro de eliminar esta tarea?")) {
+    if (confirm("¿Eliminar esta tarea?")) {
       tareas.splice(index, 1);
       mostrarTareas();
     }
