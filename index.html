@@ -133,18 +133,30 @@
   </section>
     <section id="gestion">
   <h2>GESTIÓN DE LAS SEMANAS</h2>
+  <h2>GESTIÓN DE LAS SEMANAS</h2>
   <div style="max-width: 600px; margin: auto; padding: 10px;">
     <form id="formulario">
       <input type="hidden" id="indice">
+      
+      <!-- Selector de sección -->
+      <select id="seccionDestino" required style="width: 100%; margin-bottom: 10px;">
+        <option value="">Selecciona una sección</option>
+        <option value="tareas">Tareas Académicas 1</option>
+        <option value="examen">Examen PARCIAL</option>
+        <option value="tareas2">Tareas Académicas 2</option>
+        <option value="lista-tareas">Gestión de tareas</option>
+      </select>
+
       <input type="text" id="titulo" placeholder="Título (ej: Semana 17)" required style="width: 100%; margin-bottom: 10px;">
       <input type="file" id="archivo" accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg" required style="width: 100%; margin-bottom: 10px;">
-      <button type="submit" style="width: 100%; background-color: #3498db; color: white; padding: 10px; border: none; border-radius: 5px;">Guardar</button>
+      
+      <button type="submit" style="width: 100%; background-color: #3498db; color: white; padding: 10px; border: none; border-radius: 5px;">
+        Guardar
+      </button>
     </form>
   </div>
 
-  <div class="contenedor-tareas" id="lista-tareas">
-    <!-- Las tareas gestionadas aparecerán aquí -->
-  </div>
+  <div class="contenedor-tareas" id="lista-tareas"></div>
 </section>
 
     <script src="Script.js"></script>
